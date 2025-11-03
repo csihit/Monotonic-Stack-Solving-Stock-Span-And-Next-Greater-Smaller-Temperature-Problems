@@ -1,0 +1,91 @@
+function stock_span(prices):
+    n = length(prices)
+    spans = array of size n initialized to 0
+    stack = empty stack
+
+    for i from 0 to n-1:
+        while stack is not empty AND prices[stack.top()] <= prices[i]:
+            stack.pop()
+
+        if stack is empty:
+            spans[i] = i + 1
+        else:
+            spans[i] = i - stack.top()
+
+        stack.push(i)
+    return spans
+
+
+function next_greater_to_right(arr, sentinel = -1):
+    n = length(arr)
+    out = array of size n initialized with sentinel
+    stack = empty stack
+
+    for i from 0 to n-1:
+        while stack is not empty AND arr[stack.top()] < arr[i]:
+            idx = stack.pop()
+            out[idx] = arr[i]
+        stack.push(i)
+    return out
+
+
+function next_smaller_to_right(arr, sentinel = -1):
+    n = length(arr)
+    out = array of size n initialized with sentinel
+    stack = empty stack
+
+    for i from 0 to n-1:
+        while stack is not empty AND arr[stack.top()] > arr[i]:
+            idx = stack.pop()
+            out[idx] = arr[i]
+        stack.push(i)
+    return out
+
+
+function daily_temperatures(temps):
+    n = length(temps)
+    res = array of size n initialized to 0
+    stack = empty stack
+
+    for i from 0 to n-1:
+        while stack is not empty AND temps[stack.top()] < temps[i]:
+            prev = stack.pop()
+            res[prev] = i - prev
+        stack.push(i)
+    return res
+
+
+function read_list_by_count(name):
+    loop:
+        prompt "Enter number of elements for " + name + ":"
+        input n
+        if n is positive integer:
+            break
+        else:
+            print "Count must be a positive integer. Try again."
+
+    loop:
+        prompt "Enter " + n + " integers for " + name + " (space separated):"
+        input line
+        parts = split line by spaces
+        if length(parts) != n:
+            print "Expected " + n + " integers, got " + length(parts) + ". Please try again."
+            continue
+        if all parts can be converted to integers:
+            return list of integers
+        else:
+            print "All entries must be integers. Please try again."
+
+
+# Main Program
+
+prices = read_list_by_count("stock prices")
+arr_for_ngtr = read_list_by_count("array for Next Greater to Right")
+arr_for_nstr = read_list_by_count("array for Next Smaller to Right")
+temps = read_list_by_count("temperatures for Daily Temperatures")
+
+print "Outputs:"
+print "Stock spans:", stock_span(prices)
+print "Next greater to right:", next_greater_to_right(arr_for_ngtr)
+print "Next smaller to right:", next_smaller_to_right(arr_for_nstr)
+print "Daily temperatures (days to wait):", daily_temperatures(temps)
