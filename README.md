@@ -3,16 +3,16 @@ This project demonstrates how Monotonic Stacks can be used to efficiently solve 
 
 Functions Implemented:
 
-• stock_span(prices)
+• stock_span(prices) :
 Calculates how many consecutive days before each day had a lower or equal stock price.
 
-• next_greater_to_right(arr)
+• next_greater_to_right(arr) :
 Finds the next greater value on the right side for each element in the array.
 
-• next_smaller_to_right(arr)
+• next_smaller_to_right(arr) :
 Finds the next smaller value on the right side for each element in the array.
 
-• daily_temperatures(temps)
+• daily_temperatures(temps) :
 Determines how many days one must wait to get a warmer temperature.
 
 How To Run:
