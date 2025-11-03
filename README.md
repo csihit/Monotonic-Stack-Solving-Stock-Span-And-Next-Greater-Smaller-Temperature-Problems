@@ -1,5 +1,5 @@
 # Monotonic-Stack-Solving-Stock-Span-And-Next-Greater-Smaller-Temperature-Problems
-This project demonstrates how Monotonic Stacks can be used to efficiently solve common array-based problems such as stock prediction, temperature tracking, and comparing values on the right side of the list.
+This code snippet demonstrates how Monotonic Stacks can be used to efficiently solve common array-based problems such as stock prediction, temperature tracking, and comparing values on the right side of the list.
 
 Functions Implemented:
 
